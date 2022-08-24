@@ -1,9 +1,17 @@
+using CarReservation.NET6.InMemorySingleton;
+using Microsoft.Extensions.DependencyInjection;
+
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
 builder.Services.AddControllersWithViews();
 
+builder.Services.AddEndpointsApiExplorer();
+builder.Services.AddSwaggerGen();
+
 var app = builder.Build();
+
+app.UseSwaggerUI();
 
 // Configure the HTTP request pipeline.
 if (!app.Environment.IsDevelopment())
@@ -19,6 +27,8 @@ app.UseStaticFiles();
 app.UseRouting();
 
 app.UseAuthorization();
+
+app.UseSwagger(x => x.SerializeAsV2 = true);
 
 app.MapControllerRoute(
     name: "default",

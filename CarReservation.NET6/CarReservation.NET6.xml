@@ -1,0 +1,335 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>CarReservation.NET6</name>
+    </assembly>
+    <members>
+        <member name="T:CarReservation.NET6.Controllers.HomeController">
+            <summary>
+            Car Reservation Operations
+            </summary>
+        </member>
+        <member name="M:CarReservation.NET6.Controllers.HomeController.#ctor(Microsoft.Extensions.Logging.ILogger{CarReservation.NET6.Controllers.HomeController})">
+            <summary>
+            Constructor of HomeController
+            </summary>
+            <param name="logger"></param>
+        </member>
+        <member name="M:CarReservation.NET6.Controllers.HomeController.Index">
+            <summary>
+            Index View
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:CarReservation.NET6.Controllers.HomeController.GetAllCars">
+            <summary>
+            Get All cars
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:CarReservation.NET6.Controllers.HomeController.GetUpcomingReservations">
+            <summary>
+            Get All upcoming reservations
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:CarReservation.NET6.Controllers.HomeController.InsertDummyData">
+            <summary>
+            Insert Dummy Data
+            </summary>
+            <returns>All Vehicles</returns>
+        </member>
+        <member name="M:CarReservation.NET6.Controllers.HomeController.AddCar(CarReservation.NET6.Utils.RequestHandler.InsertCar)">
+            <summary>
+            Add new car
+            </summary>
+            <param name="Request"></param>
+            <returns></returns>
+        </member>
+        <member name="M:CarReservation.NET6.Controllers.HomeController.Delete(CarReservation.NET6.Utils.RequestHandler.DeleteCar)">
+            <summary>
+            Delete Car
+            </summary>
+            <param name="Request"></param>
+            <returns></returns>
+        </member>
+        <member name="M:CarReservation.NET6.Controllers.HomeController.Update(CarReservation.NET6.Utils.RequestHandler.UpdateCar)">
+            <summary>
+            Update Car
+            </summary>
+            <param name="Request"></param>
+            <returns></returns>
+        </member>
+        <member name="M:CarReservation.NET6.Controllers.HomeController.SetReservation(CarReservation.NET6.Utils.RequestHandler.ReservationRequest)">
+            <summary>
+            Set reservation by id
+            </summary>
+            <param name="Request"></param>
+            <returns></returns>
+        </member>
+        <member name="M:CarReservation.NET6.Controllers.HomeController.Privacy">
+            <summary>
+            Privacy
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:CarReservation.NET6.Controllers.HomeController.Error">
+            <summary>
+            Error
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="T:CarReservation.NET6.Exceptions.Hour24Exception">
+            <summary>
+            Reservation 24 Hour Exception
+            </summary>
+        </member>
+        <member name="M:CarReservation.NET6.Exceptions.Hour24Exception.#ctor">
+            <summary>
+            Contructor of Hour24Exception
+            </summary>
+        </member>
+        <member name="T:CarReservation.NET6.Exceptions.DurationException">
+            <summary>
+            Duration Exception
+            </summary>
+        </member>
+        <member name="M:CarReservation.NET6.Exceptions.DurationException.#ctor">
+            <summary>
+             Contructor of DurationException
+            </summary>
+        </member>
+        <member name="T:CarReservation.NET6.InMemorySingleton.VehicleStorage">
+            <summary>
+            Singleton Vehizle List
+            </summary>
+        </member>
+        <member name="F:CarReservation.NET6.InMemorySingleton.VehicleStorage.instance">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="M:CarReservation.NET6.InMemorySingleton.VehicleStorage.#ctor">
+            <summary>
+            Cponstructor of  Storage
+            </summary>
+        </member>
+        <member name="P:CarReservation.NET6.InMemorySingleton.VehicleStorage.Instance">
+            <summary>
+            Get exist instance
+            </summary>
+        </member>
+        <member name="T:CarReservation.NET6.Interfaces.IVehicle">
+            <summary>
+            Vehicle interface
+            </summary>
+        </member>
+        <member name="P:CarReservation.NET6.Interfaces.IVehicle.Id">
+            <summary>
+            Id
+            </summary>
+        </member>
+        <member name="P:CarReservation.NET6.Interfaces.IVehicle.Make">
+            <summary>
+            Make
+            </summary>
+        </member>
+        <member name="P:CarReservation.NET6.Interfaces.IVehicle.Model">
+            <summary>
+            Model
+            </summary>
+        </member>
+        <member name="P:CarReservation.NET6.Interfaces.IVehicle.reservations">
+            <summary>
+            List of reservations
+            </summary>
+        </member>
+        <member name="M:CarReservation.NET6.Interfaces.IVehicle.getId">
+            <summary>
+            get new id
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:CarReservation.NET6.Interfaces.IVehicle.update(System.String,System.String,CarReservation.NET6.InMemorySingleton.VehicleStorage)">
+            <summary>
+            update 
+            </summary>
+            <param name="make"></param>
+            <param name="model"></param>
+            <param name="vehicles"></param>
+            <returns></returns>
+        </member>
+        <member name="M:CarReservation.NET6.Interfaces.IVehicle.delete(CarReservation.NET6.InMemorySingleton.VehicleStorage)">
+            <summary>
+            delete
+            </summary>
+            <param name="vehicles"></param>
+        </member>
+        <member name="M:CarReservation.NET6.Interfaces.IVehicle.setReservation(System.DateTime,System.DateTime)">
+            <summary>
+            Set reservation
+            </summary>
+            <param name="startDate"></param>
+            <param name="endDate"></param>
+            <returns></returns>
+        </member>
+        <member name="T:CarReservation.NET6.Models.Car">
+            <summary>
+            Car class
+            </summary>
+        </member>
+        <member name="P:CarReservation.NET6.Models.Car.Id">
+            <summary>
+            Id
+            </summary>
+        </member>
+        <member name="P:CarReservation.NET6.Models.Car.Make">
+            <summary>
+            Make
+            </summary>
+        </member>
+        <member name="P:CarReservation.NET6.Models.Car.Model">
+            <summary>
+            Model
+            </summary>
+        </member>
+        <member name="P:CarReservation.NET6.Models.Car.reservations">
+            <summary>
+            Reservation list for vehicle
+            </summary>
+        </member>
+        <member name="M:CarReservation.NET6.Models.Car.#ctor(System.String,System.String)">
+            <summary>
+            Car constructor
+            </summary>
+            <param name="make"></param>
+            <param name="model"></param>
+        </member>
+        <member name="M:CarReservation.NET6.Models.Car.getId">
+            <summary>
+            Get new id
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:CarReservation.NET6.Models.Car.delete(CarReservation.NET6.InMemorySingleton.VehicleStorage)">
+            <summary>
+            Delete car
+            </summary>
+            <param name="vehicles"></param>
+        </member>
+        <member name="M:CarReservation.NET6.Models.Car.update(System.String,System.String,CarReservation.NET6.InMemorySingleton.VehicleStorage)">
+            <summary>
+            Update Car
+            </summary>
+            <param name="make"></param>
+            <param name="model"></param>
+            <param name="vehicles"></param>
+            <returns></returns>
+        </member>
+        <member name="M:CarReservation.NET6.Models.Car.setReservation(System.DateTime,System.DateTime)">
+            <summary>
+            Set Reservation
+            </summary>
+            <param name="startDate"></param>
+            <param name="endDate"></param>
+            <returns></returns>
+            <exception cref="T:CarReservation.NET6.Exceptions.Hour24Exception"></exception>
+            <exception cref="T:CarReservation.NET6.Exceptions.DurationException"></exception>
+        </member>
+        <member name="T:CarReservation.NET6.Models.ErrorViewModel">
+            <summary>
+            Error View Model
+            </summary>
+        </member>
+        <member name="P:CarReservation.NET6.Models.ErrorViewModel.RequestId">
+            <summary>
+            Request ID
+            </summary>
+        </member>
+        <member name="P:CarReservation.NET6.Models.ErrorViewModel.ShowRequestId">
+            <summary>
+            Show request ID
+            </summary>
+        </member>
+        <member name="T:CarReservation.NET6.Models.Reservation">
+            <summary>
+            Vehizle reservation object
+            </summary>
+        </member>
+        <member name="P:CarReservation.NET6.Models.Reservation.StartDate">
+            <summary>
+            Start date of reservation
+            </summary>
+        </member>
+        <member name="P:CarReservation.NET6.Models.Reservation.EndDate">
+            <summary>
+            End Date of reservation
+            </summary>
+        </member>
+        <member name="T:CarReservation.NET6.Utils.RequestHandler.DeleteCar">
+            <summary>
+            Request Model for Delete Car
+            </summary>
+        </member>
+        <member name="P:CarReservation.NET6.Utils.RequestHandler.DeleteCar.Id">
+            <summary>
+            Deleted Car Id
+            </summary>
+        </member>
+        <member name="T:CarReservation.NET6.Utils.RequestHandler.InsertCar">
+            <summary>
+            Request Model for insert Car
+            </summary>
+        </member>
+        <member name="P:CarReservation.NET6.Utils.RequestHandler.InsertCar.Make">
+            <summary>
+            Car Make
+            </summary>
+        </member>
+        <member name="P:CarReservation.NET6.Utils.RequestHandler.InsertCar.Model">
+            <summary>
+            Car Model
+            </summary>
+        </member>
+        <member name="T:CarReservation.NET6.Utils.RequestHandler.ReservationRequest">
+            <summary>
+            Request model for reservations
+            </summary>
+        </member>
+        <member name="P:CarReservation.NET6.Utils.RequestHandler.ReservationRequest.Id">
+            <summary>
+            Id
+            </summary>
+        </member>
+        <member name="P:CarReservation.NET6.Utils.RequestHandler.ReservationRequest.StartDate">
+            <summary>
+            Start Date of Reservation
+            </summary>
+        </member>
+        <member name="P:CarReservation.NET6.Utils.RequestHandler.ReservationRequest.EndDate">
+            <summary>
+            End Date of reservation
+            </summary>
+        </member>
+        <member name="T:CarReservation.NET6.Utils.RequestHandler.UpdateCar">
+            <summary>
+            Request model for update car
+            </summary>
+        </member>
+        <member name="P:CarReservation.NET6.Utils.RequestHandler.UpdateCar.Id">
+            <summary>
+            Updated Car Id
+            </summary>
+        </member>
+        <member name="P:CarReservation.NET6.Utils.RequestHandler.UpdateCar.Make">
+            <summary>
+            Updated Car Make
+            </summary>
+        </member>
+        <member name="P:CarReservation.NET6.Utils.RequestHandler.UpdateCar.Model">
+            <summary>
+            Updated Car Model
+            </summary>
+        </member>
+    </members>
+</doc>
